@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Disney World Neighborhood Project</title>
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+      #map {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <button class="hamburger" data-bind="visible: hamburgerVisible, click: toggle">&#9776;</button>
+      <button class="cross" data-bind="visible: crossVisible, click: toggle">&#735;</button>
+    </header>
+  <div class="menu">
+    Disney World Parks <br><br>
+    <input type="text" class="filter" placeholder="Filter Parks..." data-bind="value: currentFilter, valueUpdate: 'afterkeydown'"/>
+    <ul id="myUL" data-bind="foreach:filterLocations">
+      <li data-bind="text: title, click: clickForInfo"></li>
+    </ul>
+  </div>
+    <div id="map"></div>
+    <script src='js/jquery-3.2.1.js'></script>
+    <script src='bower_components/knockout/knockout.js'></script>
+    <script src='controller/MapController.js'></script>
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtUoYbtk1PNEhYBDlOqiJsM74HEkru7gU&callback=newMap" onerror="mapError()">
+    </script>
+  </body>
+</html>
